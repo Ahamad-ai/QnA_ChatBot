@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q and A Chatbot with OpenAI</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container" >
+        <h1>Q and A Chatbot with OpenAI</h1>
+        <div class="settings">
+            <label>API Key: <input type="password" id="apiKey" placeholder="Enter your OpenAI API Key" size="40"/></label>
+            <label>Model:
+                <select id="model">
+                    <option value="gpt-4o">gpt-4o</option>
+                    <option value="gpt-4.1">gpt-4.1</option>
+                </select>
+            </label>
+            <div class="slider-row">
+
+                <label>
+                    Temperature:
+                    <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7" oninput="updateTemperature()" />
+                    <span id="tempValue">0.7</span>
+                </label>
+
+                <label>
+                    Max Tokens:
+                    <input type="range" id="maxTokens" min="50" max="300" step="10" value="150" oninput="updateMaxTokens()" />
+                    <span id="tokenValue">150</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="chatbox">
+            <input type="text" id="userInput" placeholder="Hey, Nice to meet you ! Ask me anything..." />
+            <button onclick="sendMessage()">Send</button>
+            <div id="response"></div>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
